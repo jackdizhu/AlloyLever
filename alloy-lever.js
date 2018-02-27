@@ -95,6 +95,56 @@
             })
         }
     }
+    // log 唤起方式 增加 ^ 滑动轨迹唤起
+    var triggerLog = function(callback) {
+        var first = {
+            x: 0,
+            y: document.documentElement.clientHeight
+        };
+        var second = {
+            x: document.documentElement.clientWidth / 2,
+            y: 0
+        };
+        var third = {
+            x: document.documentElement.clientWidth,
+            y: document.documentElement.clientHeight
+        };
+        var flag1;
+        var flag2;
+        var distance = 50;
+
+        document.addEventListener('touchmove', function(e) {
+
+            if (flag1 && Math.abs(e.targetTouches[0].clientX - second.x) < distance && Math.abs(e.targetTouches[0].clientY - second.y) < distance) {
+                flag2 = true;
+            }
+            if (flag2 && Math.abs(e.targetTouches[0].clientX - third.x) < distance && Math.abs(e.targetTouches[0].clientY - third.y) < distance) {
+                callback();
+                flag1 = flag2 = false;
+            }
+        });
+        document.addEventListener('touchend', function() {
+
+            flag1 = flag2 = false;
+        });
+        document.addEventListener('touchstart', function(e) {
+
+            flag1 = flag2 = false;
+            if (Math.abs(e.targetTouches[0].clientX - first.x) < distance && Math.abs(e.targetTouches[0].clientY - first.y) < distance) {
+                flag1 = true;
+                e.preventDefault();
+            }
+        });
+    };
+    var inittriggerLog = false;
+    triggerLog(function() {
+        if (inittriggerLog) {
+            vConsole.show();
+        } else {
+            inittriggerLog = true;
+            AlloyLever.vConsole(true)
+        }
+    });
 
     window.onerror = function(msg, url, line, col, error) {
         var newMsg = msg
