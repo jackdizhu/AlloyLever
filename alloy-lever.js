@@ -18,9 +18,9 @@
     AlloyLever.settings = {
         cdn: '//s.url.cn/qqun/qun/qqweb/m/qun/confession/js/vconsole.min.js',     // vconsole CDN地址
         reportUrl: "//127.0.0.1/", // 错误报告地址
-        reportPrefix: 'reportPrefix', // 错误报告MSG前缀通常用于区分业务类型。
-        reportKey: 'reportKey', // 错误报告MSG前缀键，用户报告系统接收存储MSG
         otherReport: { // 其他报告资料
+            reportPrefix: 'reportPrefix', // 错误报告MSG前缀通常用于区分业务类型。
+            reportKey: 'reportKey', // 错误报告MSG前缀键，用户报告系统接收存储MSG
             otherReport: 'otherReport'
         },
         entry: '#entry' // 请点击这个DOM元素召唤vconsole 6次
@@ -179,7 +179,8 @@
 
         var ss = AlloyLever.settings
         if(ss.reportUrl) {
-            var src = ss.reportUrl + '?' + ss.reportKey + '='+( ss.reportPrefix?('[' + ss.reportPrefix +']'):'')+ newMsg+'&t='+new Date().getTime()
+            // var src = ss.reportUrl + '?' + ss.reportKey + '='+( ss.reportPrefix?('[' + ss.reportPrefix +']'):'')+ newMsg+'&t='+new Date().getTime()
+            var src = ss.reportUrl + '?' + 'error' + '=' + '[' + newMsg + ']' + '&t=' + new Date().getTime()
             if(ss.otherReport) {
                 for (var i in ss.otherReport) {
                     if (ss.otherReport.hasOwnProperty(i)) {
