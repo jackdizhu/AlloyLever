@@ -1,7 +1,28 @@
 ﻿## 增加内容
+* npm run msg 解析 error 信息
 * v2 module 加载修改
 * v3 根据 error 错误信息 映射原始文件 位置
 * v4 采集 user_agent 浏览器指纹信息
+```js
+{
+    "query": {
+        "info": "[{\"result\":\"68a0ce6312a83426fb2c698ba06267ff\",\"user_agent\":{\"key\":\"user_agent\",\"value\":\"Mozilla/5.0 (iPhone; CPU iPhone OS 9_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Version/9.0 Mobile/13B143 Safari/601.1\"}}]",
+        "error": "[{\"msg\":\"ReferenceError: d is not defined    @ Object.3../alloy-lever.js (http://127.0.0.1/AlloyLever/public/dist/js/build.js:321:9)    @ s (http://127.0.0.1/AlloyLever/public/dist/js/build.js:1:265)    @ e (http://127.0.0.1/AlloyLever/public/dist/js/build.js:1:436)    @ http://127.0.0.1/AlloyLever/public/dist/js/build.js:1:465\",\"filename\":\"http://127.0.0.1/AlloyLever/public/dist/js/build.js\",\"line\":321,\"column\":9}]",
+        "t": "1519804589147",
+        "reportPrefix": "reportPrefix",
+        "reportKey": "reportKey",
+        "otherReport": "otherReport"
+    }
+}
+```
+```js
+[{
+    msg: 'ReferenceError: d is not defined @ Object.2../alloy-lever.js (http://127.0.0.1/AlloyLever/public/dist/js/build.js:308:9) @ s (http://127.0.0.1/AlloyLever/public/dist/js/build.js:1:265) @ e (http://127.0.0.1/AlloyLever/public/dist/js/build.js:1:436) @ http://127.0.0.1/AlloyLever/public/dist/js/build.js:1:465',
+    filename: 'public/src/js/es6.js',
+    line: 8,
+    column: 8
+}]
+```
 
 #### English | [﻿中文](https://github.com/AlloyTeam/AlloyLever#中文--english)
 
