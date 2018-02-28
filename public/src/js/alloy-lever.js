@@ -28,6 +28,7 @@
     AlloyLever.store = []
 
     var methodList = ['log', 'info', 'warn', 'debug', 'error'];
+    var methodListC = {'log': [], 'info': [], 'warn': [], 'debug': [], 'error': []};
     methodList.forEach(function(item) {
         var method = console[item];
 
@@ -36,6 +37,7 @@
                 logType: item,
                 logs: arguments
             });
+            methodListC[item].push({logs: arguments})
 
             method.apply(console, arguments);
         }
@@ -149,6 +151,12 @@
     });
 
     window.onerror = function(msg, url, line, col, error) {
+        // 报错后 加载 vConsole 
+        if (!inittriggerLog) {
+            inittriggerLog = true;
+            AlloyLever.vConsole(false)
+        }
+
         var newMsg = msg
 
         if (error && error.stack) {
@@ -178,17 +186,23 @@
 
         var ss = AlloyLever.settings
         if(ss.reportUrl) {
-            // var src = ss.reportUrl + '?' + ss.reportKey + '='+( ss.reportPrefix?('[' + ss.reportPrefix +']'):'')+ newMsg+'&t='+new Date().getTime()
-            var src = ss.reportUrl + '?' + 'error' + '=' + '[' + newMsg + ']' + '&t=' + new Date().getTime()
-            if(ss.otherReport) {
-                for (var i in ss.otherReport) {
-                    if (ss.otherReport.hasOwnProperty(i)) {
-                        src += '&' + i + '=' + ss.otherReport[i]
+            var fn = function () {
+                console.log(methodListC.info)
+                // var src = ss.reportUrl + '?' + ss.reportKey + '='+( ss.reportPrefix?('[' + ss.reportPrefix +']'):'')+ newMsg+'&t='+new Date().getTime()
+                var src = ss.reportUrl + '?' + 'info' + '=' + '[' + JSON.stringify(methodListC.info) + ']' + '&' + 'error' + '=' + '[' + newMsg + ']' + '&t=' + new Date().getTime()
+                if(ss.otherReport) {
+                    for (var i in ss.otherReport) {
+                        if (ss.otherReport.hasOwnProperty(i)) {
+                            src += '&' + i + '=' + ss.otherReport[i]
+                        }
                     }
                 }
+                console.log(src)
+                new Image().src = src
             }
-            console.log(src)
-            new Image().src = src
+            setTimeout(function () {
+                fn()
+            },1100);
         }
     }
 
@@ -243,7 +257,6 @@
     }
 
     function processStackMsg (error) {
-        console.log(error.stack)
         var stack = error.stack
             .replace(/\n/gi, "")
             .split(/\bat\b/)

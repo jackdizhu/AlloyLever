@@ -1,24 +1,72 @@
 {
-  "name": "alloylever",
-  "version": "1.0.0",
-  "description": "Made you can use vConsole in the production environment.",
+  "name": "app",
+  "version": "0.0.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node gulpFile_dev.js",
+    "env": "node gulpFile_env.js",
+    "less": "node gulpFile_less.js",
+    "test": "node gulpFile_test.js",
+    "rev": "node gulpFile_rev.js",
+    "revWeight": "node gulpFile_revWeight.js",
+    "reload": "node gulpFile_reload.js",
+    "order": "node gulpFile_order.js",
+    "min": "node gulpFile_min.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/AlloyTeam/AlloyLever"
+  "dependencies": {
+    "autoprefixer": "*",
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-plugin-transform-decorators": "^6.24.1",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "babelify": "^8.0.0",
+    "browserify": "^15.2.0",
+    "css-loader": "^0.28.4",
+    "file-loader": "^0.11.2",
+    "gulp": "^3.9.1",
+    "gulp-babel": "*",
+    "gulp-cache": "^1.0.2",
+    "gulp-cheerio": "^0.6.3",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.2.0",
+    "gulp-csso": "^3.0.1",
+    "gulp-devhtml": "^1.2.0",
+    "gulp-dom-src": "^0.2.0",
+    "gulp-express": "^0.3.5",
+    "gulp-htmlmin": "*",
+    "gulp-imagemin": "*",
+    "gulp-less": "^3.4.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-minify-css": "*",
+    "gulp-nodemon": "^2.2.1",
+    "gulp-notify": "^3.1.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-postcss": "*",
+    "gulp-processhtml": "^1.2.0",
+    "gulp-replace": "^0.6.1",
+    "gulp-rev": "^8.1.1",
+    "gulp-rev-collector": "^1.2.4",
+    "gulp-rev-format": "*",
+    "gulp-rev-replace": "*",
+    "gulp-sourcemaps": "^2.6.3",
+    "gulp-uglify": "^1.1.0",
+    "gulp-webpack": "^1.5.0",
+    "html-webpack-plugin": "^2.29.0",
+    "html-withimg-loader": "^0.1.16",
+    "imagemin-pngquant": "^5.0.1",
+    "standard": "^10.0.3",
+    "style-loader": "^0.18.2",
+    "thunks": "^4.9.0",
+    "url-loader": "^0.5.9",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0",
+    "vue": "^2.3.4",
+    "vue-loader": "*",
+    "vue-template-compiler": "*",
+    "webpack": "^3.0.0"
   },
-  "keywords": [
-    "vConsole",
-    "AlloyLever"
-  ],
-  "dependencies": {},
-  "devDependencies": {},
-  "author": "dntzhang",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/AlloyTeam/AlloyLever/issues/new"
-  },
-  "homepage": "http://alloyteam.github.io/AlloyLever/"
+  "devDependencies": {
+    "gulp-base64": "^0.1.2"
+  }
 }
