@@ -55,6 +55,7 @@
     "html-webpack-plugin": "^2.29.0",
     "html-withimg-loader": "^0.1.16",
     "imagemin-pngquant": "^5.0.1",
+    "stack-mapper": "^0.2.2",
     "standard": "^10.0.3",
     "style-loader": "^0.18.2",
     "thunks": "^4.9.0",
