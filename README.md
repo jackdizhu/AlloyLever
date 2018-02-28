@@ -17,9 +17,9 @@
 ```
 ```js
 [{
-    msg: 'ReferenceError: d is not defined @ Object.2../alloy-lever.js (http://127.0.0.1/AlloyLever/public/dist/js/build.js:308:9) @ s (http://127.0.0.1/AlloyLever/public/dist/js/build.js:1:265) @ e (http://127.0.0.1/AlloyLever/public/dist/js/build.js:1:436) @ http://127.0.0.1/AlloyLever/public/dist/js/build.js:1:465',
+    msg: 'ReferenceError: d is not defined @ Object.3../alloy-lever.js (http://127.0.0.1/AlloyLever/public/dist/js/build.js:321:9) @ s (http://127.0.0.1/AlloyLever/public/dist/js/build.js:1:265) @ e (http://127.0.0.1/AlloyLever/public/dist/js/build.js:1:436) @ http://127.0.0.1/AlloyLever/public/dist/js/build.js:1:465',
     filename: 'public/src/js/es6.js',
-    line: 8,
+    line: 20,
     column: 8
 }]
 ```
