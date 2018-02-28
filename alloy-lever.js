@@ -14,13 +14,16 @@
         root["AlloyLever"] = factory()
 })(this, function() {
     var AlloyLever = {}
+
     AlloyLever.settings = {
-        cdn:'//s.url.cn/qqun/qun/qqweb/m/qun/confession/js/vconsole.min.js',
-        reportUrl: null,
-        reportPrefix: '',
-        reportKey: 'msg',
-        otherReport: null,
-        entry: null
+        cdn: '//s.url.cn/qqun/qun/qqweb/m/qun/confession/js/vconsole.min.js',     // vconsole CDN地址
+        reportUrl: "//127.0.0.1/", // 错误报告地址
+        reportPrefix: 'reportPrefix', // 错误报告MSG前缀通常用于区分业务类型。
+        reportKey: 'reportKey', // 错误报告MSG前缀键，用户报告系统接收存储MSG
+        otherReport: { // 其他报告资料
+            otherReport: 'otherReport'
+        },
+        entry: '#entry' // 请点击这个DOM元素召唤vconsole 6次
     }
 
     AlloyLever.store = []
@@ -184,6 +187,7 @@
                     }
                 }
             }
+            console.log(src)
             new Image().src = src
         }
     }
@@ -239,6 +243,7 @@
     }
 
     function processStackMsg (error) {
+        console.log(error.stack)
         var stack = error.stack
             .replace(/\n/gi, "")
             .split(/\bat\b/)
