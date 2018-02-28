@@ -4,19 +4,18 @@
  *  MIT Licensed.
  */
 ;(function (root, factory) {
-    if(typeof exports === 'object' && typeof module === 'object')
+    if(typeof exports === 'object' && typeof module === 'object') {
         module.exports = factory()
-    else if(typeof define === 'function' && define.amd)
-        define([], factory)
-    else if(typeof exports === 'object')
+    } else if(typeof exports === 'object') {
         exports["AlloyLever"] = factory()
-    else
+    } else {
         root["AlloyLever"] = factory()
+    }
 })(this, function() {
     var AlloyLever = {}
 
     AlloyLever.settings = {
-        cdn: '//s.url.cn/qqun/qun/qqweb/m/qun/confession/js/vconsole.min.js',     // vconsole CDN地址
+        cdn: '//s.url.cn/qqun/qun/qqweb/m/qun/confession/js/vconsole.min.js', // vconsole CDN地址
         reportUrl: "//127.0.0.1/", // 错误报告地址
         otherReport: { // 其他报告资料
             reportPrefix: 'reportPrefix', // 错误报告MSG前缀通常用于区分业务类型。
