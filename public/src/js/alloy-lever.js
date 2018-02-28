@@ -151,11 +151,22 @@
     });
 
     window.onerror = function(msg, url, line, col, error) {
-        // 报错后 加载 vConsole 
-        if (!inittriggerLog) {
-            inittriggerLog = true;
-            AlloyLever.vConsole(false)
-        }
+        // 采集浏览器指纹
+        var _Fingerprint2 = {}
+        var Fingerprint2 = require('fingerprintjs2');
+        new Fingerprint2().get(function(result, components){
+            _Fingerprint2.result = result;
+            _Fingerprint2.user_agent = components.find(item => {
+                return item.key === 'user_agent'
+            });
+            console.log(_Fingerprint2)
+        });
+
+        // 报错后 加载 vConsole 测试使用
+        // if (!inittriggerLog) {
+        //     inittriggerLog = true;
+        //     AlloyLever.vConsole(false)
+        // }
 
         var newMsg = msg
 
@@ -189,7 +200,7 @@
         var ss = AlloyLever.settings
         if(ss.reportUrl) {
             var fn = function () {
-                var src = ss.reportUrl + '?' + 'info' + '=' + '[' + 'info' + ']' + '&' + 'error' + '=' + '[' + JSON.stringify(_obj) + ']' + '&t=' + new Date().getTime()
+                var src = ss.reportUrl + '?' + 'info' + '=' + '[' + JSON.stringify(_Fingerprint2) + ']' + '&' + 'error' + '=' + '[' + JSON.stringify(_obj) + ']' + '&t=' + new Date().getTime()
                 if(ss.otherReport) {
                     for (var i in ss.otherReport) {
                         if (ss.otherReport.hasOwnProperty(i)) {

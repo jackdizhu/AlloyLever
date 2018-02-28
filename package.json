@@ -2,14 +2,7 @@
   "name": "app",
   "version": "0.0.0",
   "scripts": {
-    "dev": "node gulpFile_dev.js",
-    "env": "node gulpFile_env.js",
-    "less": "node gulpFile_less.js",
-    "test": "node gulpFile_test.js",
-    "rev": "node gulpFile_rev.js",
-    "revWeight": "node gulpFile_revWeight.js",
-    "reload": "node gulpFile_reload.js",
-    "order": "node gulpFile_order.js",
+    "msg": "node error_sourceMap.js",
     "min": "node gulpFile_min.js"
   },
   "dependencies": {
@@ -23,6 +16,7 @@
     "browserify": "^15.2.0",
     "css-loader": "^0.28.4",
     "file-loader": "^0.11.2",
+    "fingerprintjs2": "^1.6.1",
     "gulp": "^3.9.1",
     "gulp-babel": "*",
     "gulp-cache": "^1.0.2",
