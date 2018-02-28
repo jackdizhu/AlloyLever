@@ -1,7 +1,7 @@
 ﻿## 增加内容
-v2 module 加载修改
-v3 根据 error 错误信息 映射原始文件 位置
-v4 采集 user_agent 浏览器指纹信息
+* v2 module 加载修改
+* v3 根据 error 错误信息 映射原始文件 位置
+* v4 采集 user_agent 浏览器指纹信息
 
 #### English | [﻿中文](https://github.com/AlloyTeam/AlloyLever#中文--english)
 
