@@ -1,6 +1,6 @@
 ﻿## 增加内容
 * npm run msg 解析 error 信息
-* v2 module 加载修改
+* v2 module 加载修改 增加 ^ 手势唤起vConsole
 * v3 根据 error 错误信息 映射原始文件 位置
 * v4 采集 user_agent 浏览器指纹信息
 ```js
