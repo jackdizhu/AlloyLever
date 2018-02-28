@@ -171,12 +171,14 @@
 
         newMsg = (newMsg + "" || "").substr(0,500)
 
-        AlloyLever.logs.push({
+        var _obj = {
             msg: newMsg,
-            target: url,
-            rowNum: line,
-            colNum: col
-        })
+            filename: url,
+            line: line,
+            column: col
+        }
+
+        AlloyLever.logs.push(_obj)
 
         if (msg.toLowerCase().indexOf('script error') > -1) {
             console.error('Script Error: See Browser Console for Detail')
@@ -187,9 +189,7 @@
         var ss = AlloyLever.settings
         if(ss.reportUrl) {
             var fn = function () {
-                console.log(methodListC.info)
-                // var src = ss.reportUrl + '?' + ss.reportKey + '='+( ss.reportPrefix?('[' + ss.reportPrefix +']'):'')+ newMsg+'&t='+new Date().getTime()
-                var src = ss.reportUrl + '?' + 'info' + '=' + '[' + JSON.stringify(methodListC.info) + ']' + '&' + 'error' + '=' + '[' + newMsg + ']' + '&t=' + new Date().getTime()
+                var src = ss.reportUrl + '?' + 'info' + '=' + '[' + 'info' + ']' + '&' + 'error' + '=' + '[' + JSON.stringify(_obj) + ']' + '&t=' + new Date().getTime()
                 if(ss.otherReport) {
                     for (var i in ss.otherReport) {
                         if (ss.otherReport.hasOwnProperty(i)) {
@@ -202,8 +202,9 @@
             }
             setTimeout(function () {
                 fn()
-            },1100);
+            },0);
         }
+        return true;
     }
 
     var parameter = getParameter('vconsole')
