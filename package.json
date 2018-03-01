@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "msg": "node error_sourceMap.js",
+    "code": "node sourcemapLookup.js",
     "min": "node gulpFile_min.js"
   },
   "dependencies": {
@@ -59,7 +60,9 @@
     "vue": "^2.3.4",
     "vue-loader": "*",
     "vue-template-compiler": "*",
-    "webpack": "^3.0.0"
+    "webpack": "^3.0.0",
+    "minimist": "^1.2.0",
+    "source-map": "^0.5.3"
   },
   "devDependencies": {
     "gulp-base64": "^0.1.2"
