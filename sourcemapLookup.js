@@ -83,7 +83,7 @@ fs.access(originalFileName, fs.R_OK, function(err){
 			}
 
 			// 写文件
-			fs.writeFileSync('./msg/msg.js', text);
+			fs.writeFileSync('./msg/code.js', text);
 		});
 	}
 });

@@ -12,5 +12,9 @@ var map = JSON.parse(fs.readFileSync('./public/dist/js/build.js.map', 'utf8'));
 
 var sm = stackMapper(map);
 var msg = sm.map(err_msg);
+for (let i = 0; i < err_msg.length; i++) {
+	err_msg[i].msg = err_msg[i].msg.split('@')[0]
+}
 
-console.log(msg);
+// 写文件
+fs.writeFileSync('./msg/msg.js', '\n' + JSON.stringify(err_msg) + '\n');
