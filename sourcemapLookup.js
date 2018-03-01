@@ -1,7 +1,3 @@
-#!/usr/bin/env node
-
-require('colors');
-
 var err_msg = [{
 	"msg": "ReferenceError: d is not defined @ Object.3../alloy-lever.js (http://127.0.0.1/AlloyLever/public/dist/js/build.js:321:9) @ s (http://127.0.0.1/AlloyLever/public/dist/js/build.js:1:265) @ e (http://127.0.0.1/AlloyLever/public/dist/js/build.js:1:436) @ http://127.0.0.1/AlloyLever/public/dist/js/build.js:1:465",
 	"filename": "http://127.0.0.1/AlloyLever/public/dist/js/build.js",
