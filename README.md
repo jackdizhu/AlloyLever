@@ -3,7 +3,7 @@
 * v2 module 加载修改 增加 ^ 手势唤起vConsole
 * v3 根据 error 错误信息 映射原始文件 位置
 * v4 采集 user_agent 浏览器指纹信息
-* v4 根据 error sourceMap 查看源码 并对应错误行数
+* v5 根据 error sourceMap 查看源码 并对应错误行数
 ```js
 {
     "query": {
@@ -23,6 +23,14 @@
     line: 20,
     column: 8
 }]
+```
+```
+15 | console.log('this is log content')
+16 | console.debug('this is debug content')
+17 | console.error('this is error content')
+18 |
+19 | var a = 1, b = 2;
+20>| var c = d * a
 ```
 
 #### English | [﻿中文](https://github.com/AlloyTeam/AlloyLever#中文--english)
